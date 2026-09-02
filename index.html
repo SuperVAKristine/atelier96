@@ -22,7 +22,7 @@ h1{font-size:clamp(48px,7vw,82px);line-height:.98;max-width:800px;margin:18px 0}
 .actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.secondary{display:inline-block;border:1px solid var(--dark);color:var(--dark);padding:12px 20px;border-radius:30px;text-decoration:none}
 .section{max-width:1200px;margin:auto;padding:82px 22px}.heading{text-align:center;margin-bottom:45px}.heading small{text-transform:uppercase;letter-spacing:3px;color:#a58b77}.heading h2{font-size:42px;margin:8px 0}.heading p{max-width:600px;margin:auto;color:var(--muted)}
 .collection{margin-bottom:70px}.collection-head{display:flex;justify-content:space-between;align-items:end;gap:20px;margin-bottom:24px}.collection-head h3{font-size:29px}.collection-head p{color:var(--muted)}.price-range{white-space:nowrap;color:var(--brown);font-size:17px}
-.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{background:#fff;border:1px solid var(--line);overflow:hidden;transition:.2s}.card:hover{transform:translateY(-4px);box-shadow:0 12px 35px rgba(60,40,20,.08)}.card img{width:100%;aspect-ratio:1;object-fit:cover;display:block}.info{padding:16px}.info h4{font-size:17px}.info p{font-size:13px;color:var(--muted);margin-top:2px}.card-price{font-weight:bold;color:var(--brown);margin:9px 0}.card-actions{display:flex;gap:7px}.add{flex:1;border:0;background:var(--dark);color:white;padding:10px;border-radius:5px;cursor:pointer}.wa{border:0;background:var(--green);color:white;width:43px;border-radius:5px;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}.card{background:#fff;border:1px solid var(--line);overflow:hidden;transition:.2s}.card:hover{transform:translateY(-4px);box-shadow:0 12px 35px rgba(60,40,20,.08)}.card img{width:100%;aspect-ratio:1;object-fit:cover;display:block}.info{padding:20px}.info h4{font-size:17px}.info p{font-size:13px;color:var(--muted);margin-top:2px}.card-price{font-weight:bold;color:var(--brown);margin:9px 0}.card-actions{display:flex;gap:7px}.add{flex:1;border:0;background:var(--dark);color:white;padding:10px;border-radius:5px;cursor:pointer}.wa{border:0;background:var(--green);color:white;width:43px;border-radius:5px;cursor:pointer}
 .about{background:#fff}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.about-img{width:100%;height:480px;object-fit:cover}.about h2{font-size:42px;line-height:1.1;margin:10px 0 18px}.about p{color:var(--muted);margin-bottom:15px}.features{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:25px}.feature{border:1px solid var(--line);padding:17px}.feature p{font-size:13px;margin:4px 0 0}
 .cta{background:var(--dark);color:#fff;text-align:center}.cta .section{padding:75px 22px}.cta h2{font-size:43px}.cta p{max-width:620px;margin:10px auto;color:#d5cbc3}.cta a{display:inline-block;margin-top:22px;background:#fff;color:var(--dark);padding:12px 22px;border-radius:30px;text-decoration:none}
 footer{background:#211d1a;color:#fff;text-align:center;padding:38px 20px}footer p{color:#aaa09a;font-size:13px;margin-top:6px}
@@ -30,6 +30,7 @@ footer{background:#211d1a;color:#fff;text-align:center;padding:38px 20px}footer 
 @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.about-grid{grid-template-columns:1fr}.links{display:none}}
 @media(max-width:600px){.hero{min-height:570px}.section{padding:62px 16px}.heading h2,.about h2{font-size:34px}.grid{gap:10px}.collection-head{display:block}.price-range{margin-top:6px}.hero-inner{padding:65px 18px}.hero p{font-size:16px}.features{grid-template-columns:1fr}}
 </style>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -48,7 +49,7 @@ footer{background:#211d1a;color:#fff;text-align:center;padding:38px 20px}footer 
 <p>Curated ceramic and fine bone mugs with unique designs, thoughtfully selected for everyday rituals and special gifts.</p>
 <div class="actions">
 <a class="primary" href="#shop">Shop the Collection</a>
-<a class="secondary" target="_blank" href="https://wa.me/639454388200?text=Hi%20Atelier%2096!%20I'd%20like%20to%20inquire%20about%20your%20mugs.">Chat on WhatsApp</a>
+<a class="secondary" href="mailto:atelier96.mugs@gmail.com?subject=Atelier%2096%20Mug%20Inquiry">Contact Atelier 96</a>
 </div>
 </div>
 </section>
@@ -78,7 +79,7 @@ footer{background:#211d1a;color:#fff;text-align:center;padding:38px 20px}footer 
 </div>
 </section>
 
-<section class="cta" id="order"><div class="section"><h2>Find your next favorite mug.</h2><p>Choose your pieces, add them to your cart, and send your order directly to Atelier 96 through WhatsApp.</p><a href="#shop">Browse Mugs</a></div></section>
+<section class="cta" id="order"><div class="section"><h2>Find your next favorite mug.</h2><p>Choose your pieces, add them to your cart, and send your order directly to Atelier 96 by email.</p><a href="#shop">Browse Mugs</a></div></section>
 
 <footer><strong>ATELIER 96</strong><p>Curated mugs for coffee, tea & beautiful moments ☕✨</p><p>Ceramic & Fine Bone • Unique Designs • Gift-Ready 🎁</p><p>📍 Laguna | Nationwide Shipping</p></footer>
 
@@ -91,15 +92,19 @@ footer{background:#211d1a;color:#fff;text-align:center;padding:38px 20px}footer 
 <h3>Customer Details</h3>
 <div class="group"><label>Name *</label><input id="customerName" placeholder="Your full name"></div>
 <div class="group"><label>Mobile Number *</label><input id="customerPhone" placeholder="09XXXXXXXXX"></div>
+<div class="group"><label>Email Address *</label><input id="customerEmail" type="email" placeholder="you@example.com"></div>
 <div class="group"><label>Delivery Address *</label><textarea id="customerAddress" placeholder="Complete delivery address"></textarea></div>
 <div class="group"><label>Preferred Payment</label><select id="paymentMethod"><option>GCash</option><option>Maya</option><option>Bank Transfer</option><option>Cash on Delivery</option></select></div>
 <div class="group"><label>Order Notes</label><textarea id="orderNotes" placeholder="Additional instructions (optional)"></textarea></div>
-<button class="checkout" onclick="checkoutWhatsApp()">💬 Send Order via WhatsApp</button>
+<button class="checkout" onclick="checkoutEmail()">📩 Place Order</button>
+<div style="font-size:12px;color:var(--muted);text-align:center;margin-top:9px">Your order will be sent directly to Atelier 96 by email.</div>
 </div>
 </div>
 </div>
 
 <script>
+emailjs.init({publicKey: "gTsB3S35O1qEnm005"});
+
 const products=[
 {id:"WT-GRAY",name:"White Top Gray",collection:"White Top Ceramic",price:80,image:"images/Small Ceramic - White Top -  Gray.jpg"},
 {id:"WT-RED",name:"White Top Red",collection:"White Top Ceramic",price:80,image:"images/Small Ceramic - White Top -  Red.jpg"},
@@ -136,7 +141,7 @@ s.innerHTML=`<div class="collection-head"><div><h3>${c}</h3><p>${info[c][0]}</p>
 const grid=s.querySelector(".grid");
 products.filter(p=>p.collection===c).forEach(p=>{
 const card=document.createElement("article");card.className="card";
-card.innerHTML=`<img src="${p.image}" alt="${p.name}" onerror="this.src='https://placehold.co/700x700/f7f3ed/6f5748?text=Atelier+96'"><div class="info"><h4>${p.name}</h4><p>Atelier 96 curated piece</p><div class="card-price">₱${p.price.toLocaleString()}</div><div class="card-actions"><button class="add" onclick="addToCart('${p.id}')">Add to Cart</button><button class="wa" onclick="quickWhatsApp('${p.id}')">💬</button></div></div>`;
+card.innerHTML=`<img src="${p.image}" alt="${p.name}" onerror="this.src='https://placehold.co/700x700/f7f3ed/6f5748?text=Atelier+96'"><div class="info"><h4>${p.name}</h4><p>Atelier 96 curated piece</p><div class="card-price">₱${p.price.toLocaleString()}</div><div class="card-actions"><button class="add" onclick="addToCart('${p.id}')">Add to Cart</button></div></div>`;
 grid.appendChild(card);
 });
 root.appendChild(s);
@@ -156,55 +161,52 @@ else{box.innerHTML="";cart.forEach((x,i)=>{const sub=x.price*x.quantity;total+=s
 document.getElementById("cartCount").textContent=count;document.getElementById("cartTotal").textContent="₱"+total.toLocaleString();
 }
 
-function quickWhatsApp(id){
-const p=products.find(x=>x.id===id);
-const msg=`Hi Atelier 96! 👋
-
-I'd like to inquire about:
-
-${p.name}
-Price: ₱${p.price.toLocaleString()}
-
-Is this still available?
-
-Thank you! ☕✨`;
-window.open("https://wa.me/639454388200?text="+encodeURIComponent(msg),"_blank");
-}
-
-function checkoutWhatsApp(){
+function checkoutEmail(){
 if(!cart.length){alert("Your cart is empty. Please add a mug first.");return}
-const name=document.getElementById("customerName").value.trim(),phone=document.getElementById("customerPhone").value.trim(),address=document.getElementById("customerAddress").value.trim(),payment=document.getElementById("paymentMethod").value,notes=document.getElementById("orderNotes").value.trim();
-if(!name||!phone||!address){alert("Please complete your name, mobile number, and delivery address.");return}
-let total=0,msg="Hi Atelier 96! 👋
-
-I'd like to place an order.
-
-━━━━━━━━━━━━━━
-🛍️ ORDER DETAILS
-━━━━━━━━━━━━━━
-";
-cart.forEach(x=>{const sub=x.price*x.quantity;total+=sub;msg+=`
-${x.name}
-Qty: ${x.quantity}
-₱${x.price.toLocaleString()} each
-Subtotal: ₱${sub.toLocaleString()}
-`});
-msg+=`
-━━━━━━━━━━━━━━
-TOTAL: ₱${total.toLocaleString()}
-━━━━━━━━━━━━━━
-
-👤 CUSTOMER DETAILS
-Name: ${name}
-Mobile: ${phone}
-Address: ${address}
-Payment: ${payment}`;
-if(notes)msg+=`
-Notes: ${notes}`;
-msg+="
-
-Thank you! ☕✨";
-window.open("https://wa.me/639454388200?text="+encodeURIComponent(msg),"_blank");
+const name=document.getElementById("customerName").value.trim();
+const phone=document.getElementById("customerPhone").value.trim();
+const email=document.getElementById("customerEmail").value.trim();
+const address=document.getElementById("customerAddress").value.trim();
+const payment=document.getElementById("paymentMethod").value;
+const notes=document.getElementById("orderNotes").value.trim();
+if(!name||!phone||!email||!address){alert("Please complete your name, mobile number, email address, and delivery address.");return}
+if(!/^\S+@\S+\.\S+$/.test(email)){alert("Please enter a valid email address.");return}
+let total=0;
+let orderItems="";
+cart.forEach((x,index)=>{
+const sub=x.price*x.quantity;
+total+=sub;
+orderItems+=`${index+1}. ${x.name}\nQty: ${x.quantity}\nPrice: ₱${x.price.toLocaleString()} each\nSubtotal: ₱${sub.toLocaleString()}\n\n`;
+});
+const params={
+customer_name:name,
+customer_phone:phone,
+customer_email:email,
+delivery_address:address,
+order_items:orderItems.trim(),
+order_total:`₱${total.toLocaleString()}`,
+payment_method:payment,
+notes:notes||"None"
+};
+const button=document.querySelector(".checkout");
+const originalText=button.textContent;
+button.disabled=true;
+button.textContent="Sending order…";
+emailjs.send("service_hvv7wec","template_nvfa1w1",params)
+.then(function(){
+alert("Thank you! ☕✨ Your order has been sent to Atelier 96. We’ll contact you soon to confirm your order.");
+cart=[];
+updateCart();
+closeCart();
+})
+.catch(function(error){
+console.error("EmailJS error:",error);
+alert("We couldn't send your order right now. Please try again in a moment. Your cart is still saved.");
+})
+.finally(function(){
+button.disabled=false;
+button.textContent=originalText;
+});
 }
 renderProducts();updateCart();
 </script>
