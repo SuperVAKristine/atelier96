@@ -26,6 +26,7 @@ h1{font-size:clamp(48px,7vw,82px);line-height:.98;max-width:800px;margin:18px 0}
 .about{background:#fff}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.about-img{width:100%;height:480px;object-fit:cover}.about h2{font-size:42px;line-height:1.1;margin:10px 0 18px}.about p{color:var(--muted);margin-bottom:15px}.features{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:25px}.feature{border:1px solid var(--line);padding:17px}.feature p{font-size:13px;margin:4px 0 0}
 .cta{background:var(--dark);color:#fff;text-align:center}.cta .section{padding:75px 22px}.cta h2{font-size:43px}.cta p{max-width:620px;margin:10px auto;color:#d5cbc3}.cta a{display:inline-block;margin-top:22px;background:#fff;color:var(--dark);padding:12px 22px;border-radius:30px;text-decoration:none}
 footer{background:#211d1a;color:#fff;text-align:center;padding:38px 20px}footer p{color:#aaa09a;font-size:13px;margin-top:6px}
+.product-overlay{position:fixed;inset:0;background:rgba(20,16,13,.62);z-index:200;display:none;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(4px)}.product-overlay.open{display:flex}.product-modal{width:min(900px,100%);max-height:92vh;overflow:auto;background:#fff;border-radius:18px;box-shadow:0 25px 80px rgba(0,0,0,.25);position:relative}.product-modal-grid{display:grid;grid-template-columns:1fr 1fr}.product-modal-image{width:100%;height:100%;min-height:520px;object-fit:cover;background:#f7f3ed}.product-modal-content{padding:38px;display:flex;flex-direction:column;justify-content:center}.product-modal-kicker{text-transform:uppercase;letter-spacing:3px;color:#a58b77;font-size:11px;margin-bottom:10px}.product-modal h2{font-size:34px;line-height:1.1;margin:0 0 12px}.product-modal-description{color:var(--muted);font-size:15px;line-height:1.7;margin-bottom:20px}.product-modal-price{font-size:25px;font-weight:bold;color:var(--brown);margin-bottom:25px}.modal-actions{display:flex;gap:10px;flex-wrap:wrap}.modal-add{border:0;background:var(--dark);color:#fff;padding:13px 20px;border-radius:30px;cursor:pointer;font-weight:bold}.modal-back{border:1px solid var(--dark);background:#fff;color:var(--dark);padding:12px 20px;border-radius:30px;cursor:pointer}.modal-close{position:absolute;right:16px;top:12px;width:38px;height:38px;border:0;border-radius:50%;background:rgba(255,255,255,.9);font-size:25px;cursor:pointer;z-index:2}.card{cursor:pointer}.card-actions{position:relative}.add{position:relative;z-index:2}@media(max-width:700px){.product-modal-grid{grid-template-columns:1fr}.product-modal-image{min-height:330px;max-height:50vh}.product-modal-content{padding:26px}.product-modal h2{font-size:28px}.product-overlay{padding:10px}}
 .overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;display:none}.overlay.open{display:block}.drawer{position:absolute;right:0;top:0;height:100%;width:min(450px,100%);background:#fff;padding:24px;overflow:auto}.cart-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:14px}.close{border:0;background:none;font-size:28px;cursor:pointer}.cart-item{display:grid;grid-template-columns:65px 1fr auto;gap:11px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}.cart-item img{width:65px;height:65px;object-fit:cover}.cart-item h4{font-size:14px}.qty{display:flex;gap:8px;align-items:center;margin-top:6px}.qty button{width:25px;height:25px;border:1px solid var(--line);background:#fff;cursor:pointer}.remove{border:0;background:none;color:#a44;font-size:11px;cursor:pointer}.total{display:flex;justify-content:space-between;font-size:20px;font-weight:bold;margin:22px 0}.form h3{margin-bottom:12px}.group{margin-bottom:12px}.group label{display:block;font-size:12px;margin-bottom:4px}.group input,.group textarea,.group select{width:100%;padding:11px;border:1px solid var(--line);background:#faf8f5}.group textarea{min-height:75px;resize:vertical}.payment-box{display:none;background:#f7f1eb;border:1px solid var(--line);padding:13px;border-radius:6px;margin:-3px 0 12px}.payment-box.show{display:block}.payment-box strong{color:var(--brown)}.payment-box p{font-size:13px;margin:3px 0;color:var(--muted)}.payment-note{font-size:11px!important;margin-top:8px!important}.checkout{width:100%;border:0;background:var(--green);color:#fff;padding:14px;border-radius:5px;cursor:pointer}.empty{text-align:center;color:var(--muted);padding:45px 10px}
 @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.about-grid{grid-template-columns:1fr}.links{display:none}}
 @media(max-width:600px){.hero{min-height:570px}.section{padding:62px 16px}.heading h2,.about h2{font-size:34px}.grid{gap:10px}.collection-head{display:block}.price-range{margin-top:6px}.hero-inner{padding:65px 18px}.hero p{font-size:16px}.features{grid-template-columns:1fr}}
@@ -36,7 +37,7 @@ footer{background:#211d1a;color:#fff;text-align:center;padding:38px 20px}footer 
 
 <nav class="nav">
 <div class="nav-inner">
-<div class="logo">ATELIER 96<span>MUG COLLECTION</span></div>
+<div class="logo">ATELIER 96<span>CURATED GIFTS</span></div>
 <ul class="links"><li><a href="#shop">Collections</a></li><li><a href="#about">About</a></li><li><a href="#order">Order</a></li></ul>
 <button class="cart-btn" onclick="openCart()">🛒 Cart <span id="cartCount">0</span></button>
 </div>
@@ -44,9 +45,9 @@ footer{background:#211d1a;color:#fff;text-align:center;padding:38px 20px}footer 
 
 <section class="hero">
 <div class="hero-inner">
-<div class="eyebrow">Welcome to Atelier 96</div>
-<h1>Mugs for coffee, tea & beautiful moments.</h1>
-<p>Curated ceramic and fine bone mugs with unique designs, thoughtfully selected for everyday rituals and special gifts.</p>
+<div class="eyebrow">Welcome to Atelier 96 • A Curated Gift Shop</div>
+<h1>Thoughtful gifts for beautiful moments. 🎁✨</h1>
+<p>Curated finds for every occasion — from little treats for yourself to gifts they’ll remember.</p>
 <div class="actions">
 <a class="primary" href="#shop">Shop the Collection</a>
 <a class="secondary" href="mailto:atelier96.mugs@gmail.com?subject=Atelier%2096%20Mug%20Inquiry">Contact Atelier 96</a>
@@ -67,7 +68,7 @@ footer{background:#211d1a;color:#fff;text-align:center;padding:38px 20px}footer 
 <div class="eyebrow">The Atelier 96 Story</div>
 <h2>Small details make ordinary moments beautiful.</h2>
 <p>Atelier 96 was created for people who believe that even the simplest coffee or tea deserves a beautiful little ritual.</p>
-<p>Our collection brings together ceramic and fine bone mugs with unique designs that are perfect for your home, your workspace, or someone special.</p>
+<p>Our collection brings together beautiful finds chosen for everyday joy, thoughtful gifting, and the little moments worth celebrating. Mugs are just the beginning.</p>
 <div class="features">
 <div class="feature"><strong>☕ Curated</strong><p>Every piece is selected with intention.</p></div>
 <div class="feature"><strong>🎁 Gift-Ready</strong><p>Beautiful pieces for thoughtful gifting.</p></div>
@@ -79,9 +80,28 @@ footer{background:#211d1a;color:#fff;text-align:center;padding:38px 20px}footer 
 </div>
 </section>
 
-<section class="cta" id="order"><div class="section"><h2>Find your next favorite mug.</h2><p>Choose your pieces, add them to your cart, and send your order directly to Atelier 96 by email.</p><a href="#shop">Browse Mugs</a></div></section>
+<section class="cta" id="order"><div class="section"><h2>Find something worth giving. 🎁</h2><p>Explore our curated finds, choose your favorites, and send your order directly to Atelier 96 by email.</p><a href="#shop">Explore the Collection</a></div></section>
 
-<footer><strong>ATELIER 96</strong><p>Curated mugs for coffee, tea & beautiful moments ☕✨</p><p>Ceramic & Fine Bone • Unique Designs • Gift-Ready 🎁</p><p>📍 Laguna | Nationwide Shipping</p></footer>
+<footer><strong>ATELIER 96</strong><p>Thoughtful gifts for beautiful moments. 🎁✨</p><p>Curated Finds • Gift-Ready • Nationwide Shipping</p><p>📍 Laguna | Nationwide Shipping</p></footer>
+
+<div class="product-overlay" id="productOverlay" onclick="if(event.target===this)closeProduct()">
+<div class="product-modal">
+<button class="modal-close" onclick="closeProduct()" aria-label="Close">×</button>
+<div class="product-modal-grid">
+<img id="modalImage" class="product-modal-image" src="" alt="">
+<div class="product-modal-content">
+<div id="modalCollection" class="product-modal-kicker"></div>
+<h2 id="modalName"></h2>
+<p id="modalDescription" class="product-modal-description"></p>
+<div id="modalPrice" class="product-modal-price"></div>
+<div class="modal-actions">
+<button id="modalAdd" class="modal-add">Add to Cart</button>
+<button class="modal-back" onclick="closeProduct()">← Back to Collection</button>
+</div>
+</div>
+</div>
+</div>
+</div>
 
 <div class="overlay" id="cartOverlay" onclick="if(event.target===this)closeCart()">
 <div class="drawer">
@@ -107,22 +127,22 @@ footer{background:#211d1a;color:#fff;text-align:center;padding:38px 20px}footer 
 emailjs.init({publicKey: "gTsB3S35O1qEnm005"});
 
 const products=[
-{id:"WT-GRAY",name:"White Top Gray",collection:"White Top Ceramic",price:80,image:"images/Small Ceramic - White Top -  Gray.jpg"},
-{id:"WT-RED",name:"White Top Red",collection:"White Top Ceramic",price:80,image:"images/Small Ceramic - White Top -  Red.jpg"},
-{id:"WT-ORANGE",name:"White Top Orange",collection:"White Top Ceramic",price:80,image:"images/Small Ceramic - White Top -  Orange.jpg"},
-{id:"WT-BLUE",name:"White Top Blue",collection:"White Top Ceramic",price:80,image:"images/Small Ceramic - White Top - Blue.jpg"},
-{id:"EE-YELLOW",name:"Edged Ear Yellow",collection:"Edged Ear Ceramic",price:100,image:"images/Small Ceramic - Edged Ear - Yellow.jpg"},
-{id:"EE-NAVY",name:"Edged Ear Navy Blue",collection:"Edged Ear Ceramic",price:100,image:"images/Small Ceramic - Edged Ear - Navy Blue.jpg"},
-{id:"EE-BLUE",name:"Edged Ear Blue",collection:"Edged Ear Ceramic",price:100,image:"images/Small Ceramic - Edged Ear - Blue.jpg"},
-{id:"EE-GRAY",name:"Edged Ear Gray",collection:"Edged Ear Ceramic",price:100,image:"images/Small Ceramic - Edged Ear - Gray.jpg"},
-{id:"FB-FLOWERS",name:"Fine Bone Flowers",collection:"Fine Bone Collection",price:120,image:"images/Small Fine Bone - Flowers(1).jpg"},
-{id:"FB-BUTTERFLY1",name:"Fine Bone Butterfly I",collection:"Fine Bone Collection",price:120,image:"images/Small Fine Bone - Butterfly 1(1).jpg"},
-{id:"FB-BUTTERFLY2",name:"Fine Bone Butterfly II",collection:"Fine Bone Collection",price:120,image:"images/Small Fine Bone - Butterfly 2(1).jpg"},
-{id:"FB-EGG",name:"Fine Bone Egg",collection:"Fine Bone Collection",price:160,image:"images/Small Fine Bone - Eggs(1).jpg"},
-{id:"FB-LIGHTHOUSE",name:"Fine Bone Lighthouse",collection:"Fine Bone Collection",price:160,image:"images/Fine Bone Big - Lighthouse.jpg"},
-{id:"FB-FISH",name:"Fine Bone Fish",collection:"Fine Bone Collection",price:160,image:"images/Fine Bone Big - Fish.jpg"},
-{id:"BC-GLOSSY",name:"Happy is the New Perfect",collection:"Big Ceramic",price:135,image:"images/Big Ceramic - Glossy.jpg"},
-{id:"BC-MATTE",name:"Love is Magic / Always Together",collection:"Big Ceramic",price:135,image:"images/Big Ceramic - Matte.jpg"}
+{id:"WT-GRAY",name:"White Top Gray",collection:"White Top Ceramic",price:80,image:"images/Small Ceramic - White Top -  Gray.jpg",description:"A simple white-top ceramic mug with a soft gray accent. An easy everyday piece that also makes a sweet, understated gift."},
+{id:"WT-RED",name:"White Top Red",collection:"White Top Ceramic",price:80,image:"images/Small Ceramic - White Top -  Red.jpg",description:"A cheerful ceramic mug finished with a warm red accent. A lovely little pick-me-up for coffee, tea, or gifting."},
+{id:"WT-ORANGE",name:"White Top Orange",collection:"White Top Ceramic",price:80,image:"images/Small Ceramic - White Top -  Orange.jpg",description:"A bright and playful ceramic mug with an orange accent, perfect for adding a little color to everyday coffee or tea time."},
+{id:"WT-BLUE",name:"White Top Blue",collection:"White Top Ceramic",price:80,image:"images/Small Ceramic - White Top - Blue.jpg",description:"A calming ceramic mug with a blue accent. Simple, charming, and easy to pair with any cozy morning ritual."},
+{id:"EE-YELLOW",name:"Edged Ear Yellow",collection:"Edged Ear Ceramic",price:100,image:"images/Small Ceramic - Edged Ear - Yellow.jpg",description:"A playful ceramic mug with a distinctive edged handle and sunny yellow detail. A fun choice for bright personalities."},
+{id:"EE-NAVY",name:"Edged Ear Navy Blue",collection:"Edged Ear Ceramic",price:100,image:"images/Small Ceramic - Edged Ear - Navy Blue.jpg",description:"A characterful ceramic mug with an edged handle and deep navy-blue detail. A classic look with a playful shape."},
+{id:"EE-BLUE",name:"Edged Ear Blue",collection:"Edged Ear Ceramic",price:100,image:"images/Small Ceramic - Edged Ear - Blue.jpg",description:"A charming blue-accented ceramic mug with a distinctive edged handle, made for relaxed everyday drinks."},
+{id:"EE-GRAY",name:"Edged Ear Gray",collection:"Edged Ear Ceramic",price:100,image:"images/Small Ceramic - Edged Ear - Gray.jpg",description:"A neutral gray-edged ceramic mug with a fun silhouette. A versatile piece for home, work, or thoughtful gifting."},
+{id:"FB-FLOWERS",name:"Fine Bone Flowers",collection:"Fine Bone Collection",price:120,image:"images/Small Fine Bone - Flowers(1).jpg",description:"A delicate fine bone piece decorated with a floral design. Elegant enough for gifting and lovely enough for everyday use."},
+{id:"FB-BUTTERFLY1",name:"Fine Bone Butterfly I",collection:"Fine Bone Collection",price:120,image:"images/Small Fine Bone - Butterfly 1(1).jpg",description:"A graceful fine bone mug featuring a butterfly-inspired design. A charming choice for someone who loves delicate details."},
+{id:"FB-BUTTERFLY2",name:"Fine Bone Butterfly II",collection:"Fine Bone Collection",price:120,image:"images/Small Fine Bone - Butterfly 2(1).jpg",description:"A delicate fine bone mug with a beautiful butterfly motif, perfect for a thoughtful little gift or a personal treat."},
+{id:"FB-EGG",name:"Fine Bone Egg",collection:"Fine Bone Collection",price:160,image:"images/Small Fine Bone - Eggs(1).jpg",description:"An elegant egg-shaped fine bone mug with a refined silhouette. A beautiful piece for quiet coffee and tea moments."},
+{id:"FB-LIGHTHOUSE",name:"Fine Bone Lighthouse",collection:"Fine Bone Collection",price:160,image:"images/Fine Bone Big - Lighthouse.jpg",description:"A statement fine bone piece featuring a lighthouse design. A distinctive gift for someone who appreciates unique, story-filled pieces."},
+{id:"FB-FISH",name:"Fine Bone Fish",collection:"Fine Bone Collection",price:160,image:"images/Fine Bone Big - Fish.jpg",description:"A distinctive fine bone mug with a charming fish design. A conversation piece that makes an especially memorable gift."},
+{id:"BC-GLOSSY",name:"Happy is the New Perfect",collection:"Big Ceramic",price:135,image:"images/Big Ceramic - Glossy.jpg",description:"A generous big ceramic mug with a glossy finish and an uplifting message. Made for cozy drinks and happier everyday moments."},
+{id:"BC-MATTE",name:"Love is Magic / Always Together",collection:"Big Ceramic",price:135,image:"images/Big Ceramic - Matte.jpg",description:"A roomy matte-finish ceramic mug featuring a sweet message about love and togetherness. A thoughtful gift for someone special."}
 ];
 
 const info={
@@ -142,11 +162,29 @@ s.innerHTML=`<div class="collection-head"><div><h3>${c}</h3><p>${info[c][0]}</p>
 const grid=s.querySelector(".grid");
 products.filter(p=>p.collection===c).forEach(p=>{
 const card=document.createElement("article");card.className="card";
-card.innerHTML=`<img src="${p.image}" alt="${p.name}" onerror="this.src='https://placehold.co/700x700/f7f3ed/6f5748?text=Atelier+96'"><div class="info"><h4>${p.name}</h4><p>Atelier 96 curated piece</p><div class="card-price">₱${p.price.toLocaleString()}</div><div class="card-actions"><button class="add" onclick="addToCart('${p.id}')">Add to Cart</button></div></div>`;
+card.innerHTML=`<img src="${p.image}" alt="${p.name}" onclick="openProduct('${p.id}')" onerror="this.src='https://placehold.co/700x700/f7f3ed/6f5748?text=Atelier+96'"><div class="info" onclick="openProduct('${p.id}')"><h4>${p.name}</h4><p>Click to view details</p><div class="card-price">₱${p.price.toLocaleString()}</div><div class="card-actions"><button class="add" onclick="event.stopPropagation();addToCart('${p.id}')">Add to Cart</button></div></div>`;
 grid.appendChild(card);
 });
 root.appendChild(s);
 });
+}
+
+function openProduct(id){
+const p=products.find(x=>x.id===id);
+if(!p)return;
+document.getElementById("modalImage").src=p.image;
+document.getElementById("modalImage").alt=p.name;
+document.getElementById("modalCollection").textContent=p.collection;
+document.getElementById("modalName").textContent=p.name;
+document.getElementById("modalDescription").textContent=p.description;
+document.getElementById("modalPrice").textContent="₱"+p.price.toLocaleString();
+document.getElementById("modalAdd").onclick=function(){addToCart(p.id);closeProduct()};
+document.getElementById("productOverlay").classList.add("open");
+document.body.style.overflow="hidden";
+}
+function closeProduct(){
+document.getElementById("productOverlay").classList.remove("open");
+document.body.style.overflow="";
 }
 
 function addToCart(id){const p=products.find(x=>x.id===id),e=cart.find(x=>x.id===id);e?e.quantity++:cart.push({...p,quantity:1});updateCart();openCart()}
@@ -157,7 +195,7 @@ function closeCart(){document.getElementById("cartOverlay").classList.remove("op
 
 function updateCart(){
 const box=document.getElementById("cartItems");let total=0,count=0;
-if(!cart.length){box.innerHTML='<div class="empty">Your cart is empty.<br><br>Choose a beautiful mug to get started ☕</div>'}
+if(!cart.length){box.innerHTML='<div class="empty">Your cart is empty.<br><br>Choose something beautiful to get started 🎁</div>'}
 else{box.innerHTML="";cart.forEach((x,i)=>{const sub=x.price*x.quantity;total+=sub;count+=x.quantity;const d=document.createElement("div");d.className="cart-item";d.innerHTML=`<img src="${x.image}" alt="${x.name}"><div><h4>${x.name}</h4><small>₱${x.price.toLocaleString()}</small><div class="qty"><button onclick="changeQty(${i},-1)">−</button><span>${x.quantity}</span><button onclick="changeQty(${i},1)">+</button></div></div><button class="remove" onclick="removeItem(${i})">Remove</button>`;box.appendChild(d)})}
 document.getElementById("cartCount").textContent=count;document.getElementById("cartTotal").textContent="₱"+total.toLocaleString();
 }
@@ -239,6 +277,7 @@ button.disabled=false;
 button.textContent=originalText;
 });
 }
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeProduct()});
 renderProducts();updateCart();updatePaymentInfo();
 </script>
 </body>
