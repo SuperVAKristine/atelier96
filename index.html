@@ -26,7 +26,7 @@ h1{font-size:clamp(48px,7vw,82px);line-height:.98;max-width:800px;margin:18px 0}
 .about{background:#fff}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}.about-img{width:100%;height:480px;object-fit:cover}.about h2{font-size:42px;line-height:1.1;margin:10px 0 18px}.about p{color:var(--muted);margin-bottom:15px}.features{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:25px}.feature{border:1px solid var(--line);padding:17px}.feature p{font-size:13px;margin:4px 0 0}
 .cta{background:var(--dark);color:#fff;text-align:center}.cta .section{padding:75px 22px}.cta h2{font-size:43px}.cta p{max-width:620px;margin:10px auto;color:#d5cbc3}.cta a{display:inline-block;margin-top:22px;background:#fff;color:var(--dark);padding:12px 22px;border-radius:30px;text-decoration:none}
 footer{background:#211d1a;color:#fff;text-align:center;padding:38px 20px}footer p{color:#aaa09a;font-size:13px;margin-top:6px}
-.overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;display:none}.overlay.open{display:block}.drawer{position:absolute;right:0;top:0;height:100%;width:min(450px,100%);background:#fff;padding:24px;overflow:auto}.cart-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:14px}.close{border:0;background:none;font-size:28px;cursor:pointer}.cart-item{display:grid;grid-template-columns:65px 1fr auto;gap:11px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}.cart-item img{width:65px;height:65px;object-fit:cover}.cart-item h4{font-size:14px}.qty{display:flex;gap:8px;align-items:center;margin-top:6px}.qty button{width:25px;height:25px;border:1px solid var(--line);background:#fff;cursor:pointer}.remove{border:0;background:none;color:#a44;font-size:11px;cursor:pointer}.total{display:flex;justify-content:space-between;font-size:20px;font-weight:bold;margin:22px 0}.form h3{margin-bottom:12px}.group{margin-bottom:12px}.group label{display:block;font-size:12px;margin-bottom:4px}.group input,.group textarea,.group select{width:100%;padding:11px;border:1px solid var(--line);background:#faf8f5}.group textarea{min-height:75px;resize:vertical}.checkout{width:100%;border:0;background:var(--green);color:#fff;padding:14px;border-radius:5px;cursor:pointer}.empty{text-align:center;color:var(--muted);padding:45px 10px}
+.overlay{position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:100;display:none}.overlay.open{display:block}.drawer{position:absolute;right:0;top:0;height:100%;width:min(450px,100%);background:#fff;padding:24px;overflow:auto}.cart-head{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:14px}.close{border:0;background:none;font-size:28px;cursor:pointer}.cart-item{display:grid;grid-template-columns:65px 1fr auto;gap:11px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}.cart-item img{width:65px;height:65px;object-fit:cover}.cart-item h4{font-size:14px}.qty{display:flex;gap:8px;align-items:center;margin-top:6px}.qty button{width:25px;height:25px;border:1px solid var(--line);background:#fff;cursor:pointer}.remove{border:0;background:none;color:#a44;font-size:11px;cursor:pointer}.total{display:flex;justify-content:space-between;font-size:20px;font-weight:bold;margin:22px 0}.form h3{margin-bottom:12px}.group{margin-bottom:12px}.group label{display:block;font-size:12px;margin-bottom:4px}.group input,.group textarea,.group select{width:100%;padding:11px;border:1px solid var(--line);background:#faf8f5}.group textarea{min-height:75px;resize:vertical}.payment-box{display:none;background:#f7f1eb;border:1px solid var(--line);padding:13px;border-radius:6px;margin:-3px 0 12px}.payment-box.show{display:block}.payment-box strong{color:var(--brown)}.payment-box p{font-size:13px;margin:3px 0;color:var(--muted)}.payment-note{font-size:11px!important;margin-top:8px!important}.checkout{width:100%;border:0;background:var(--green);color:#fff;padding:14px;border-radius:5px;cursor:pointer}.empty{text-align:center;color:var(--muted);padding:45px 10px}
 @media(max-width:900px){.grid{grid-template-columns:repeat(2,1fr)}.about-grid{grid-template-columns:1fr}.links{display:none}}
 @media(max-width:600px){.hero{min-height:570px}.section{padding:62px 16px}.heading h2,.about h2{font-size:34px}.grid{gap:10px}.collection-head{display:block}.price-range{margin-top:6px}.hero-inner{padding:65px 18px}.hero p{font-size:16px}.features{grid-template-columns:1fr}}
 </style>
@@ -94,8 +94,9 @@ footer{background:#211d1a;color:#fff;text-align:center;padding:38px 20px}footer 
 <div class="group"><label>Mobile Number *</label><input id="customerPhone" placeholder="09XXXXXXXXX"></div>
 <div class="group"><label>Email Address *</label><input id="customerEmail" type="email" placeholder="you@example.com"></div>
 <div class="group"><label>Delivery Address *</label><textarea id="customerAddress" placeholder="Complete delivery address"></textarea></div>
-<div class="group"><label>Preferred Payment</label><select id="paymentMethod"><option>GCash</option><option>Maya</option><option>Bank Transfer</option><option>Cash on Delivery</option></select></div>
-<div class="group"><label>Order Notes</label><textarea id="orderNotes" placeholder="Additional instructions (optional)"></textarea></div>
+<div class="group"><label>Preferred Payment *</label><select id="paymentMethod" onchange="updatePaymentInfo()"><option>GCash</option><option>Metrobank Bank Transfer</option><option>Cash on Delivery</option></select></div>
+<div id="paymentInfo" class="payment-box show"></div>
+<div class="group"><label id="notesLabel">Order Notes / Transaction Reference *</label><textarea id="orderNotes" placeholder="Enter your GCash or Metrobank transaction reference number"></textarea><div id="notesHint" style="font-size:11px;color:var(--muted);margin-top:4px">For GCash or Metrobank payments, please enter your transaction/reference number here.</div></div>
 <button class="checkout" onclick="checkoutEmail()">📩 Place Order</button>
 <div style="font-size:12px;color:var(--muted);text-align:center;margin-top:9px">Your order will be sent directly to Atelier 96 by email.</div>
 </div>
@@ -161,6 +162,30 @@ else{box.innerHTML="";cart.forEach((x,i)=>{const sub=x.price*x.quantity;total+=s
 document.getElementById("cartCount").textContent=count;document.getElementById("cartTotal").textContent="₱"+total.toLocaleString();
 }
 
+function updatePaymentInfo(){
+const payment=document.getElementById("paymentMethod").value;
+const box=document.getElementById("paymentInfo");
+const notes=document.getElementById("orderNotes");
+const label=document.getElementById("notesLabel");
+const hint=document.getElementById("notesHint");
+if(payment==="GCash"){
+box.innerHTML=`<strong>GCash Payment</strong><p>Account Name: Kristine Carla Lomogbad</p><p>GCash Number: +63 945 438 8200</p><p class="payment-note">Please complete your payment before placing your order.</p>`;
+label.textContent="Order Notes / Transaction Reference *";
+notes.placeholder="Enter your GCash transaction/reference number";
+hint.textContent="For GCash payments, please enter your transaction/reference number here.";
+}else if(payment==="Metrobank Bank Transfer"){
+box.innerHTML=`<strong>Metrobank Bank Transfer</strong><p>Account Name: Kristine Carla Lomogbad</p><p>Account Number: 4253425569547</p><p class="payment-note">Please complete your payment before placing your order.</p>`;
+label.textContent="Order Notes / Transaction Reference *";
+notes.placeholder="Enter your Metrobank transaction/reference number";
+hint.textContent="For Metrobank payments, please enter your transaction/reference number here.";
+}else{
+box.innerHTML=`<strong>Cash on Delivery</strong><p>Payment will be collected when your order is delivered.</p><p class="payment-note">COD orders are subject to confirmation before shipping. Please make sure your mobile number and delivery address are correct.</p>`;
+label.textContent="Order Notes";
+notes.placeholder="Additional instructions (optional)";
+hint.textContent="For COD orders, you may add any additional delivery instructions here.";
+}
+}
+
 function checkoutEmail(){
 if(!cart.length){alert("Your cart is empty. Please add a mug first.");return}
 const name=document.getElementById("customerName").value.trim();
@@ -169,8 +194,10 @@ const email=document.getElementById("customerEmail").value.trim();
 const address=document.getElementById("customerAddress").value.trim();
 const payment=document.getElementById("paymentMethod").value;
 const notes=document.getElementById("orderNotes").value.trim();
+const isCOD=payment==="Cash on Delivery";
 if(!name||!phone||!email||!address){alert("Please complete your name, mobile number, email address, and delivery address.");return}
 if(!/^\S+@\S+\.\S+$/.test(email)){alert("Please enter a valid email address.");return}
+if(!isCOD&&!notes){alert("Please enter your GCash or Metrobank transaction/reference number in the Order Notes field.");return}
 let total=0;
 let orderItems="";
 cart.forEach((x,index)=>{
@@ -186,7 +213,8 @@ delivery_address:address,
 order_items:orderItems.trim(),
 order_total:`₱${total.toLocaleString()}`,
 payment_method:payment,
-notes:notes||"None"
+payment_reference:isCOD?"N/A — Cash on Delivery":notes,
+notes:isCOD?(notes||"None"):notes
 };
 const button=document.querySelector(".checkout");
 const originalText=button.textContent;
@@ -194,21 +222,24 @@ button.disabled=true;
 button.textContent="Sending order…";
 emailjs.send("service_hvv7wec","template_nvfa1w1",params)
 .then(function(){
-alert("Thank you! ☕✨ Your order has been sent to Atelier 96. We’ll contact you soon to confirm your order.");
+return emailjs.send("service_hvv7wec","template_4yu1ndk",params);
+})
+.then(function(){
+alert("Thank you! ☕✨ Your order has been received. A confirmation email has been sent to you, and Atelier 96 will contact you soon to confirm your order.");
 cart=[];
 updateCart();
 closeCart();
 })
 .catch(function(error){
 console.error("EmailJS error:",error);
-alert("We couldn't send your order right now. Please try again in a moment. Your cart is still saved.");
+alert("We couldn't complete the order email right now. Please try again in a moment. Your cart is still saved.");
 })
 .finally(function(){
 button.disabled=false;
 button.textContent=originalText;
 });
 }
-renderProducts();updateCart();
+renderProducts();updateCart();updatePaymentInfo();
 </script>
 </body>
 </html>
